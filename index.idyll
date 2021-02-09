@@ -13,16 +13,41 @@
    /]
 
 ## Social networks
-Social networking services, like Snapchat, Instagram, Twitter, and Facebook are a large part of today's world.
+```
+Social networking services, like Snapchat, Instagram, Twitter, 
+and Facebook are a large part of today's world.
+
+On average, how many hours do you spend on social media per day?
+```
+
+[var name:"scale" value:3 /]
+
+[Range value:scale min:0 max:24 /]
+[Display value:scale /]
+
+
 This post is going to explore the following question:
 
 [div style:`{backgroundColor: '#6ED2D2', padding: '20px'}`]***What is the total number of possible connections on a social network?*** [/div]
 
 ## Presentation criteria
-Create a presentation showing how to determine the total possible connections in a social 
-network of 1000 users
-* number of total possible connections for 10, 30, and 100 users
-* at least two different representations that show how the number of connections changes based on the number of users
+[var name:"checkOne" value:false /]
+[Boolean value:checkOne /]
+Presentation shows how to 
+determine the total possible connections 
+in a social network of 1000
+users: [Display value:`checkOne ? "Done" : "In progress"  `/]
+
+[var name:"checkTwo" value:false /]
+[Boolean value:checkTwo /]
+Presentation shows the number of total possible connections for 
+10, 30, and 100 users: [Display value:`checkTwo ? "Done" : "In progress"  `/]
+
+[var name:"checkThree" value:false /]
+[Boolean value:checkThree /]
+Presentation includes at least two different representations that show how 
+the number of connections changes based on the number of users: [Display value:`checkThree ? "Done" : "In progress"  `/]
+
 
 [var name:"showResources" value:false /]
 

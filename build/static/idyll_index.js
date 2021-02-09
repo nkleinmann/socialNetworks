@@ -19753,7 +19753,73 @@ module.exports = {
     return input.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   }
 };
-},{}],"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/button.js":[function(require,module,exports){
+},{}],"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/boolean.js":[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Boolean = function (_React$PureComponent) {
+  _inherits(Boolean, _React$PureComponent);
+
+  function Boolean(props) {
+    _classCallCheck(this, Boolean);
+
+    return _possibleConstructorReturn(this, _React$PureComponent.call(this, props));
+  }
+
+  Boolean.prototype.toggleCheckbox = function toggleCheckbox() {
+    this.props.updateProps({
+      value: !this.props.value
+    });
+  };
+
+  Boolean.prototype.render = function render() {
+    var _props = this.props,
+        value = _props.value,
+        className = _props.className,
+        style = _props.style;
+
+    return _react2.default.createElement('input', {
+      type: 'checkbox',
+      onChange: this.toggleCheckbox.bind(this),
+      checked: value,
+      className: ('idyll-checkbox ' + (className ? className : '')).trim(),
+      style: style
+    });
+  };
+
+  return Boolean;
+}(_react2.default.PureComponent);
+
+Boolean.defaultProps = {
+  value: false
+};
+
+Boolean._idyll = {
+  name: 'Boolean',
+  tagType: 'closed',
+  props: [{
+    name: 'value',
+    type: 'boolean',
+    example: 'x',
+    description: 'A value for the checkbox. If this value is truthy, the checkbox will be shown.'
+  }]
+};
+
+exports.default = Boolean;
+},{"react":"react"}],"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/button.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -20388,6 +20454,93 @@ Header._idyll = {
 };
 
 exports.default = Header;
+},{"react":"react"}],"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/range.js":[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Range = function (_React$PureComponent) {
+  _inherits(Range, _React$PureComponent);
+
+  function Range(props) {
+    _classCallCheck(this, Range);
+
+    return _possibleConstructorReturn(this, _React$PureComponent.call(this, props));
+  }
+
+  Range.prototype.handleChange = function handleChange(event) {
+    this.props.updateProps({
+      value: +event.target.value
+    });
+  };
+
+  Range.prototype.render = function render() {
+    var _props = this.props,
+        value = _props.value,
+        min = _props.min,
+        max = _props.max,
+        step = _props.step;
+
+    return _react2.default.createElement('input', {
+      type: 'range',
+      onChange: this.handleChange.bind(this),
+      value: value,
+      min: min,
+      max: max,
+      step: step
+    });
+  };
+
+  return Range;
+}(_react2.default.PureComponent);
+
+Range.defaultProps = {
+  value: 0,
+  min: 0,
+  max: 1,
+  step: 1
+};
+
+Range._idyll = {
+  name: 'Range',
+  tagType: 'closed',
+  props: [{
+    name: 'value',
+    type: 'number',
+    example: 'x',
+    description: 'The value to display; if this is a variable, the variable will automatically be updated when the slider is moved.'
+  }, {
+    name: 'min',
+    type: 'number',
+    example: '0',
+    description: 'The minimum value.'
+  }, {
+    name: 'max',
+    type: 'number',
+    example: '100',
+    description: 'The maximum value.'
+  }, {
+    name: 'step',
+    type: 'number',
+    example: '1',
+    defaultValue: '1',
+    description: 'The granularity of the slider.'
+  }]
+};
+
+exports.default = Range;
 },{"react":"react"}],"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/text-container.js":[function(require,module,exports){
 'use strict';
 
@@ -65766,7 +65919,7 @@ function hasOwnProperty(obj, prop) {
 },{"./support/isBuffer":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/util/support/isBufferBrowser.js","_process":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/process/browser.js","inherits":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/util/node_modules/inherits/inherits_browser.js"}],"__IDYLL_AST__":[function(require,module,exports){
 "use strict";
 
-module.exports = { "id": 0, "type": "component", "name": "div", "children": [{ "id": 2, "type": "var", "properties": { "name": { "type": "variable", "value": "x" }, "value": { "type": "value", "value": "Connections on social networks" } } }, { "id": 3, "type": "var", "properties": { "name": { "type": "value", "value": "showResources" }, "value": { "type": "value", "value": false } } }, { "id": 4, "type": "component", "name": "TextContainer", "children": [{ "id": 5, "type": "meta", "properties": { "title": { "type": "value", "value": "MathProject" }, "description": { "type": "value", "value": "Short description of your project" } } }] }, { "id": 6, "type": "component", "name": "Header", "properties": { "title": { "type": "variable", "value": "x" }, "author": { "type": "value", "value": "Nicole Kleinmann" }, "authorLink": { "type": "value", "value": "https://idyll-lang.org" }, "date": { "type": "expression", "value": "(new Date()).toDateString()" }, "background": { "type": "value", "value": "#222222" }, "color": { "type": "value", "value": "#ffffff" } }, "children": [] }, { "id": 7, "type": "component", "name": "TextContainer", "children": [{ "id": 8, "type": "component", "name": "h2", "children": [{ "id": 9, "type": "textnode", "value": "Social networks" }] }, { "id": 10, "type": "component", "name": "p", "children": [{ "id": 11, "type": "textnode", "value": "Social networking services, like Snapchat, Instagram, Twitter, and Facebook are a large part of today’s world.\nThis post is going to explore the following question:" }] }, { "id": 12, "type": "component", "name": "div", "properties": { "style": { "type": "expression", "value": "{backgroundColor: '#6ED2D2', padding: '20px'}" } }, "children": [{ "id": 13, "type": "component", "name": "strong", "children": [{ "id": 14, "type": "component", "name": "em", "children": [{ "id": 15, "type": "textnode", "value": "What is the total number of possible connections on a social network?" }] }] }, { "id": 16, "type": "textnode", "value": " " }] }, { "id": 17, "type": "component", "name": "h2", "children": [{ "id": 18, "type": "textnode", "value": "Presentation criteria" }] }, { "id": 19, "type": "component", "name": "p", "children": [{ "id": 20, "type": "textnode", "value": "Create a presentation showing how to determine the total possible connections in a social \nnetwork of 1000 users" }] }, { "id": 21, "type": "component", "name": "ul", "children": [{ "id": 22, "type": "component", "name": "li", "children": [{ "id": 23, "type": "textnode", "value": "number of total possible connections for " }, { "id": 24, "type": "textnode", "value": "1" }, { "id": 25, "type": "textnode", "value": "0" }, { "id": 26, "type": "textnode", "value": ", " }, { "id": 27, "type": "textnode", "value": "3" }, { "id": 28, "type": "textnode", "value": "0" }, { "id": 29, "type": "textnode", "value": ", and " }, { "id": 30, "type": "textnode", "value": "1" }, { "id": 31, "type": "textnode", "value": "0" }, { "id": 32, "type": "textnode", "value": "0 " }, { "id": 33, "type": "textnode", "value": "users" }] }, { "id": 34, "type": "component", "name": "li", "children": [{ "id": 35, "type": "textnode", "value": "at least two different representations that show how the number of connections changes based on the number of users" }] }] }, { "id": 36, "type": "component", "name": "Button", "properties": { "onClick": { "type": "expression", "value": "showResources = !showResources" } }, "children": [{ "id": 37, "type": "component", "name": "Display", "properties": { "value": { "type": "expression", "value": "showResources ? 'Hide resources' : 'Show resources' " } }, "children": [] }] }, { "id": 38, "type": "component", "name": "Conditional", "properties": { "if": { "type": "expression", "value": "showResources" } }, "children": [{ "id": 39, "type": "component", "name": "Desmos", "children": [] }] }] }] };
+module.exports = { "id": 0, "type": "component", "name": "div", "children": [{ "id": 2, "type": "var", "properties": { "name": { "type": "variable", "value": "x" }, "value": { "type": "value", "value": "Connections on social networks" } } }, { "id": 3, "type": "var", "properties": { "name": { "type": "value", "value": "scale" }, "value": { "type": "value", "value": 3 } } }, { "id": 4, "type": "var", "properties": { "name": { "type": "value", "value": "checkOne" }, "value": { "type": "value", "value": false } } }, { "id": 5, "type": "var", "properties": { "name": { "type": "value", "value": "checkTwo" }, "value": { "type": "value", "value": false } } }, { "id": 6, "type": "var", "properties": { "name": { "type": "value", "value": "checkThree" }, "value": { "type": "value", "value": false } } }, { "id": 7, "type": "var", "properties": { "name": { "type": "value", "value": "showResources" }, "value": { "type": "value", "value": false } } }, { "id": 8, "type": "component", "name": "TextContainer", "children": [{ "id": 9, "type": "meta", "properties": { "title": { "type": "value", "value": "MathProject" }, "description": { "type": "value", "value": "Short description of your project" } } }] }, { "id": 10, "type": "component", "name": "Header", "properties": { "title": { "type": "variable", "value": "x" }, "author": { "type": "value", "value": "Nicole Kleinmann" }, "authorLink": { "type": "value", "value": "https://idyll-lang.org" }, "date": { "type": "expression", "value": "(new Date()).toDateString()" }, "background": { "type": "value", "value": "#222222" }, "color": { "type": "value", "value": "#ffffff" } }, "children": [] }, { "id": 11, "type": "component", "name": "TextContainer", "children": [{ "id": 12, "type": "component", "name": "h2", "children": [{ "id": 13, "type": "textnode", "value": "Social networks" }] }, { "id": 14, "type": "component", "name": "pre", "children": [{ "id": 15, "type": "component", "name": "code", "children": [{ "id": 16, "type": "textnode", "value": "Social networking services, like Snapchat, Instagram, Twitter, \nand Facebook are a large part of today's world.\n\nOn average, how many hours do you spend on social media per day?" }] }] }, { "id": 17, "type": "component", "name": "Range", "properties": { "value": { "type": "variable", "value": "scale" }, "min": { "type": "value", "value": 0 }, "max": { "type": "value", "value": 24 } }, "children": [] }, { "id": 18, "type": "component", "name": "Display", "properties": { "value": { "type": "variable", "value": "scale" } }, "children": [] }, { "id": 19, "type": "component", "name": "p", "children": [{ "id": 20, "type": "textnode", "value": "This post is going to explore the following question:" }] }, { "id": 21, "type": "component", "name": "div", "properties": { "style": { "type": "expression", "value": "{backgroundColor: '#6ED2D2', padding: '20px'}" } }, "children": [{ "id": 22, "type": "component", "name": "strong", "children": [{ "id": 23, "type": "component", "name": "em", "children": [{ "id": 24, "type": "textnode", "value": "What is the total number of possible connections on a social network?" }] }] }, { "id": 25, "type": "textnode", "value": " " }] }, { "id": 26, "type": "component", "name": "h2", "children": [{ "id": 27, "type": "textnode", "value": "Presentation criteria" }] }, { "id": 28, "type": "component", "name": "p", "children": [{ "id": 29, "type": "component", "name": "Boolean", "properties": { "value": { "type": "variable", "value": "checkOne" } }, "children": [] }, { "id": 30, "type": "textnode", "value": "\nPresentation shows how to \ndetermine the total possible connections \nin a social network of 1000\nusers: " }, { "id": 31, "type": "component", "name": "Display", "properties": { "value": { "type": "expression", "value": "checkOne ? \"Done\" : \"In progress\"  " } }, "children": [] }] }, { "id": 32, "type": "component", "name": "p", "children": [{ "id": 33, "type": "component", "name": "Boolean", "properties": { "value": { "type": "variable", "value": "checkTwo" } }, "children": [] }, { "id": 34, "type": "textnode", "value": "\nPresentation shows the number of total possible connections for 10, 30, and 100 users: " }, { "id": 35, "type": "component", "name": "Display", "properties": { "value": { "type": "expression", "value": "checkTwo ? \"Done\" : \"In progress\"  " } }, "children": [] }] }, { "id": 36, "type": "component", "name": "p", "children": [{ "id": 37, "type": "component", "name": "Boolean", "properties": { "value": { "type": "variable", "value": "checkThree" } }, "children": [] }, { "id": 38, "type": "textnode", "value": "\nPresentation includes at least two different representations that show how \nthe number of connections changes based on the number of users: " }, { "id": 39, "type": "component", "name": "Display", "properties": { "value": { "type": "expression", "value": "checkThree ? \"Done\" : \"In progress\"  " } }, "children": [] }] }, { "id": 40, "type": "component", "name": "Button", "properties": { "onClick": { "type": "expression", "value": "showResources = !showResources" } }, "children": [{ "id": 41, "type": "component", "name": "Display", "properties": { "value": { "type": "expression", "value": "showResources ? 'Hide resources' : 'Show resources' " } }, "children": [] }] }, { "id": 42, "type": "component", "name": "Conditional", "properties": { "if": { "type": "expression", "value": "showResources" } }, "children": [{ "id": 43, "type": "component", "name": "Desmos", "children": [] }] }] }] };
 
 },{}],"__IDYLL_COMPONENTS__":[function(require,module,exports){
 'use strict';
@@ -65775,13 +65928,15 @@ module.exports = {
 	'text-container': require('/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/text-container.js'),
 	'header': require('/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/header.js'),
 	'h2': require('/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/h2.js'),
+	'range': require('/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/range.js'),
 	'display': require('/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/display.js'),
+	'boolean': require('/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/boolean.js'),
 	'button': require('/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/button.js'),
 	'desmos': require('/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/desmos.js'),
 	'conditional': require('/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/conditional.js')
 };
 
-},{"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/button.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/button.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/conditional.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/conditional.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/desmos.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/desmos.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/display.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/display.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/h2.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/h2.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/header.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/header.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/text-container.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/text-container.js"}],"__IDYLL_CONTEXT__":[function(require,module,exports){
+},{"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/boolean.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/boolean.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/button.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/button.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/conditional.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/conditional.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/desmos.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/desmos.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/display.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/display.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/h2.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/h2.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/header.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/header.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/range.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/range.js","/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/text-container.js":"/Users/nicolekleinmann/UNH-Bootcamp/PostBootcampProjects/socialNetworks/node_modules/idyll-components/dist/cjs/text-container.js"}],"__IDYLL_CONTEXT__":[function(require,module,exports){
 
 module.exports = function () {
 
