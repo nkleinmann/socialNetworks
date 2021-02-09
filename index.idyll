@@ -1,0 +1,38 @@
+[meta title:"MathProject" description:"Short description of your project" /]
+
+[var name:x value:"Connections on social networks"/]
+
+[Header
+  fullWidth:true
+  title:x
+  author:"Nicole Kleinmann"
+  authorLink:"https://idyll-lang.org"
+  date:`(new Date()).toDateString()`
+  background:"#222222"
+  color:"#ffffff"
+   /]
+
+## Social networks
+Social networking services, like Snapchat, Instagram, Twitter, and Facebook are a large part of today's world.
+This post is going to explore the following question:
+
+[div style:`{backgroundColor: '#6ED2D2', padding: '20px'}`]***What is the total number of possible connections on a social network?*** [/div]
+
+## Presentation criteria
+Create a presentation showing how to determine the total possible connections in a social 
+network of 1000 users
+* number of total possible connections for 10, 30, and 100 users
+* at least two different representations that show how the number of connections changes based on the number of users
+
+[var name:"showResources" value:false /]
+
+[Button onClick:`showResources = !showResources`]
+  [Display value:`showResources ? 'Hide resources' : 'Show resources' ` /]
+[/Button]
+
+[Conditional if:`showResources`]
+  [Desmos /]
+[/Conditional]
+
+// [Desmos equation:"" /]
+
